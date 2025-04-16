@@ -3,9 +3,9 @@
 Uma implementação, em Java, do famoso sistema de criptografia assimétrica de ElGamal.
 
 ## Pontos importantes
-- [O que é um sistema de criptografia com chaves assimétricas?](#assimetricas)
-- [Como funciona o sistema de criptografia de ElGamal?](#elgamal)
-- [Instalação e uso](#instalacao)
+- [O que é um sistema de criptografia com chaves assimétricas?](#o-que-e-um-sistema-de-criptografia-com-chaves-assimetricas)
+- [Como funciona o sistema de criptografia de ElGamal?](#como-funciona-o-sistema-de-criptografia-de-elgamal)
+- [Instalação e uso](#instalacao-e-uso)
 - [Contribuintes](#contribuintes)
 - [Notas](#notas)
 
