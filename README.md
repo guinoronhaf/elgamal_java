@@ -74,9 +74,9 @@ Mensagem a ser criptografada
 ```
 
 ## Contribuintes
-1. Guilherme Noronha Fragoso
-2. Pedro Leal e Lima
-3. Pedro Nascimento Paraíso
+1. Guilherme Noronha Fragoso (guinoronhaf)
+2. Pedro Leal e Lima (pedroleal02)
+3. Pedro Nascimento Paraíso (pedronparaiso)
 
 ## Notas
 Projeto feito como trabalho final da disciplina de Fundamentos de Matemática para Ciência da Computação II no período 2024.2, ministrada pelo professor Tiago Massoni.
