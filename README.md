@@ -3,9 +3,9 @@
 Uma implementação, em Java, do famoso sistema de criptografia assimétrica de ElGamal.
 
 ## Pontos importantes
-- [O que é um sistema de criptografia com chaves assimétricas?](#o-que-e-um-sistema-de-criptografia-com-chaves-assimetricas)
+- [O que é um sistema de criptografia com chaves assimétricas?](#o-que-é-um-sistema-de-criptografia-com-chaves-assimétricas)
 - [Como funciona o sistema de criptografia de ElGamal?](#como-funciona-o-sistema-de-criptografia-de-elgamal)
-- [Instalação e uso](#instalacao-e-uso)
+- [Instalação e uso](#instalação-e-uso)
 - [Contribuintes](#contribuintes)
 - [Notas](#notas)
 
@@ -33,7 +33,7 @@ fato que dificulta ainda mais a "quebra" do algoritmo de criptografia.
   6. Guarda a chave privada *x*.
 #### Emissor
   1. Encripta a mensagem, associando cada caractere a um código a partir de uma lógica pré-definida.
-  2. Define blocos de dígitos de tamanho *p - 1*.
+  2. Define blocos de dígitos de tamanho de até *p - 1*.
   3. Obtém a chave pública *(p, r, a)* do receptor.
   4. Seleciona um número natural *y* tal que *2 < y <= p - 2*.
   5. Calcula *b* de modo que *r^y ≡ b (mod p)*.
