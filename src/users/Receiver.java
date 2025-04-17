@@ -30,6 +30,8 @@ public class Receiver {
      */
     private Message msg;
 
+    private final int MINIMUM_PRIME_NUMBER = 199;
+
     /**
      * Builds a receiver based on the prime number "p".
      * 
@@ -40,6 +42,10 @@ public class Receiver {
 
         if (!(Number.isPrimeNumber(p))) {
             throw new IllegalArgumentException("Número informado não é primo.");
+        }
+
+        if (p < MINIMUM_PRIME_NUMBER) {
+            throw new IllegalArgumentException("Número primo informado é muito pequeno.");
         }
 
         this.p = p;

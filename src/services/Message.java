@@ -36,7 +36,7 @@ public class Message {
 
     private void populateCharactersNumbers() {
 
-        String characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ,.;:!?- 1234567890áéíóúãẽĩõũâêîôûçÇÁÉÍÓÚÃẼĨÕŨ(){}[]+=-_/<>''\"\\";
+        String characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ,.;:!?- 1234567890áéíóúãẽĩõũâêîôûçÇÁÉÍÓÚÃẼĨÕŨ(){}[]+=_/|<>''\"\\";
         int iCode = 0;
 
         for (char c : characters.toCharArray()) {
@@ -56,7 +56,7 @@ public class Message {
 
     private void populateNumbersCharacters() {
 
-        String characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ,.;:!?- 1234567890áéíóúãẽĩõũâêîôûçÇÁÉÍÓÚÃẼĨÕŨ(){}[]+=_/<>''\"\\";
+        String characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ,.;:!?- 1234567890áéíóúãẽĩõũâêîôûçÇÁÉÍÓÚÃẼĨÕŨ(){}[]+=_/|<>''\"\\";
         int iCode = 0;
 
         for (char c : characters.toCharArray()) {
