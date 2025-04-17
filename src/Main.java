@@ -3,25 +3,39 @@ import controllers.*;
 
 public class Main {
 
+    private static final int MINIMUM_ARGS_LENGTH = 2;
+
     public static void main(String[] args) {
 
-        String message = args[0];
-        int prime = Integer.parseInt(args[1]);
+        if (args.length < MINIMUM_ARGS_LENGTH) {
+            System.err.println("Número insuficiente de argumentos para o programa.");
+            System.exit(1);
+        }
 
-        Sender sender = new Sender(message);
-        Receiver receiver = new Receiver(prime);
+        try {
 
-        CryptoController c = new CryptoController(sender, receiver);
+            String message = args[0];
+            int primeNumber = Integer.parseInt(args[1]);
 
-        System.out.println(message);
+            Sender sender = new Sender(message);
+            Receiver receiver = new Receiver(primeNumber);
 
-        System.out.println("|\n|");
+            CryptoController c = new CryptoController(sender, receiver);
 
-        System.out.println(c.encryptMessage());
+            System.out.println(message);
 
-        System.out.println("|\n|");
+            System.out.println("|\n|");
 
-        System.out.println(c.decryptMessage());
+            System.out.println(c.encryptMessage() + " (Encrypted message)");
+
+            System.out.println("|\n|");
+
+            System.out.println(c.decryptMessage() + " (Decrypted message)");
+
+        } catch(Exception e) {
+            System.out.println(e.getMessage());
+            System.exit(1);
+        }
 
     }
     

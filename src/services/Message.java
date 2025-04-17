@@ -5,46 +5,69 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 
+/**
+ * Services's class Message, which encrypts, decrypts, formats and shuffles strings.
+ * 
+ * @author guinoronhaf
+ * @author pedroleal02
+ * @author pedronparaiso 
+ */
 public class Message {
 
-    private HashMap<String, String> charactersDigits;
-    private HashMap<String, String> digitsCharacters;
+    /**
+     * Hashtable that maps characters to digits.
+     */
+    private HashMap<String, String> charactersNumbers;
 
+    /**
+    * Hashtable that maps digits to characters. 
+    */
+    private HashMap<String, String> numbersCharacters;
+
+    /**
+     * Builds Message and populates the hashtables.
+     */
     public Message() {
-        this.charactersDigits = new HashMap<>();
-        this.digitsCharacters = new HashMap<>();
-        populateCharactersDigits();
-        populateDigitsCharacters();
+        this.charactersNumbers = new HashMap<>();
+        this.numbersCharacters = new HashMap<>();
+        populateCharactersNumbers();
+        populateNumbersCharacters();
     }
 
-    private void populateCharactersDigits() {
+    private void populateCharactersNumbers() {
 
-        String characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ,.;:!?- 1234567890áéíóúãẽĩõũâêîôûçÇÁÉÍÓÚÃẼĨÕŨ(){}[]+=-_/<>";
+        String characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ,.;:!?- 1234567890áéíóúãẽĩõũâêîôûçÇÁÉÍÓÚÃẼĨÕŨ(){}[]+=-_/<>''\"\\";
         int iCode = 0;
 
         for (char c : characters.toCharArray()) {
             var codigo = Integer.toString(iCode);
             codigo = (codigo.length() > 1) ? codigo : "0" + codigo;
-            charactersDigits.put(Character.toString(c), codigo);
+            charactersNumbers.put(Character.toString(c), codigo);
             iCode++;
         }
         
     }
 
-    private void populateDigitsCharacters() {
+    private void populateNumbersCharacters() {
 
-        String characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ,.;:!?- 1234567890áéíóúãẽĩõũâêîôûçÇÁÉÍÓÚÃẼĨÕŨ(){}[]+=-_/<>";
+        String characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ,.;:!?- 1234567890áéíóúãẽĩõũâêîôûçÇÁÉÍÓÚÃẼĨÕŨ(){}[]+=-_/<>''\"\\";
         int iCode = 0;
 
         for (char c : characters.toCharArray()) {
             var codigo = Integer.toString(iCode);
             codigo = (codigo.length() > 1) ? codigo : "0" + codigo;
-            digitsCharacters.put(codigo, Character.toString(c));
+            numbersCharacters.put(codigo, Character.toString(c));
             iCode++;
         }
 
     }
 
+    /**
+     * Formats a string, adding "-" at each 2 characters.
+     * 
+     * @param encMessage message to be formatted.
+     * @return formattted message.
+     */
     public String formatMessage(String encMessage) {
 
         String formatEncMessage = "";
@@ -68,6 +91,12 @@ public class Message {
 
     }
 
+    /**
+     * Encrypts message, mapping each character to its number.
+     * 
+     * @param message message to be encrypted.
+     * @return encrypted message.
+     */
     public String encryptMessage(String message) {
 
         String encMessage = "";
@@ -76,7 +105,7 @@ public class Message {
 
             var character = Character.toString(c);
 
-            encMessage += charactersDigits.get(character);
+            encMessage += charactersNumbers.get(character);
 
         }
 
@@ -84,6 +113,11 @@ public class Message {
 
     }
 
+    /**
+     * Decrypts message, mapping each digit to its character.
+     * @param code code to be decrypted.
+     * @return decrypted message.
+     */
     public String decryptMessage(String code) {
 
         String[] blocks = code.split("-");
@@ -91,13 +125,19 @@ public class Message {
         String decMessage = "";
 
         for (String block : blocks) {
-            decMessage += digitsCharacters.get(block);
+            decMessage += numbersCharacters.get(block);
         }
 
         return decMessage;
 
     }
 
+    /**
+     * Shuffles a string randomly.
+     * 
+     * @param message string to be shuffled.
+     * @return shuffled string.
+     */
     public String shuffleString(String message) {
 
         String result = "";

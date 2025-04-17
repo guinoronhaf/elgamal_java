@@ -4,8 +4,21 @@ import java.math.BigInteger;
 import java.util.HashSet;
 import java.util.concurrent.ThreadLocalRandom;
 
+/**
+ * Service's class Number, which contains static methods asscociated with interesting number properties.
+ * 
+ * @author guinoronhaf
+ * @author pedroleal02
+ * @author pedronparaiso 
+ */
 public class Number {
 
+    /**
+     * Checks if a number "n" is a prime number.
+     * 
+     * @param n number to be checked.
+     * @return boolean that confirms (true) or not (false) the assumption.
+     */
     public static boolean isPrimeNumber(int n) {
 
         if (n < 2) return false;
@@ -18,6 +31,12 @@ public class Number {
 
     }
 
+    /**
+     * Returns all "n" prime factors.
+     * 
+     * @param n number that will be factorized.
+     * @return set of "n" prime factors.
+     */
     public static HashSet<Integer> getPrimeFactors(int n) {
 
         HashSet<Integer> primeFactors = new HashSet<>();
@@ -37,6 +56,13 @@ public class Number {
 
     }
 
+    /**
+     * Checks if "g" is a primitive root module "n".
+     * 
+     * @param n module "n".
+     * @param g possible primitive root.
+     * @return boolean that confirms or not the assumption.
+     */
     public static boolean isPrimitiveRoot(int n, int g) {
 
         int phi = n - 1;
@@ -58,6 +84,12 @@ public class Number {
 
     }
 
+    /**
+     * Returns "n" first primitive root.
+     * 
+     * @param n number necessary to extract primitive root.
+     * @return first number "n" primitive root.
+     */
     public static int findPrimitiveRoot(int n) {
 
         for (int i = 1; i < n; i++) {
@@ -68,6 +100,12 @@ public class Number {
 
     }
 
+    /**
+     * Generates a random natural number from 3 to n - 2.
+     * 
+     * @param n number from which the random natural number will be generated.
+     * @return a random number from 3 to n - 2.
+     */
     public static int generateRandomNaturalNumber(int n) {
 
         int random = ThreadLocalRandom.current().nextInt(3, n - 1);

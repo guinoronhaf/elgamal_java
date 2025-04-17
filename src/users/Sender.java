@@ -7,20 +7,55 @@ import java.util.List;
 import services.Message;
 import services.Number;
 
+/**
+ * Reperesents the sender of the message, which is composed by a message.
+ * 
+ * @author guinoronhaf
+ * @author pedroleal02
+ * @author pedronparaiso 
+ */
 public class Sender {
 
+    /**
+     * Sender's message.
+     */
     private String message;
+
+    /**
+     * Object of the class Mesage, mainly used to decrypt the message once the code is obtained.
+     */
     private Message msg;
 
-    public Sender(String message) {
+    /**
+     * Builds a sender using the message.
+     * 
+     * @param message the message that will be sent.
+     * @throws IllegalArgumentException exception thrown wether the message is null or empty.
+     */
+    public Sender(String message) throws IllegalArgumentException {
+
+        if (message == null || message.isEmpty()) {
+            throw new IllegalArgumentException("Mensagem inválida.");
+        }
+
         this.message = message;
         this.msg = new Message();
     }
 
+    /**
+     * Encrypts the message using msg's algorithm.
+     * @return
+     */
     public String maskMessage() {
         return msg.shuffleString(msg.encryptMessage(message));
     }
 
+   /**
+    * Generates ciphers based on receiver's public key.
+
+    * @param pubk receiver's public key.
+    * @return sender's ciphers.
+    */ 
     public List<BigInteger[]> generateCiphers(BigInteger[] pubk) {
 
         String[] blocks = msg.formatMessage(msg.encryptMessage(message)).split("-");
