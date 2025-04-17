@@ -45,24 +45,29 @@ fato que dificulta ainda mais a "quebra" do algoritmo de criptografia.
   9. Une os resultados e forma a mensagem original.
 
 ## Instalação e uso
-1. Faça download do arquivo *zip*.
-2. Extraia o conteúdo.
-```bash
-unzip <nome do arquivo>.zip
-```
-4. Navegue até o diretório *src*.
+1. Faça download do repositório através de um arquivo *zip*.
+2. Extraia o conteúdo.<br>
+    2.1 Windows 10 e 11:
+   ```cmd
+   tar -xf <nome do arquivo>.zip -C pasta\destino
+   ```
+    2.2 Linux/Mac:
+    ```bash
+    unzip <nome do arquivo>.zip
+    ```
+3. Navegue até o diretório *src*.
 ```bash
 cd ./src
 ```
-3. Compile o arquivo *Main.java*.
+4. Compile o arquivo *Main.java*.
 ```bash
 javac Main.java
 ```
-4. Execute o arquivo com dois argumentos: a mensagem a ser critografada e o número primo grande a ser utilizado na criptografia.
+5. Execute o arquivo com dois argumentos: a mensagem a ser critografada e o número primo grande a ser utilizado na criptografia.
 ```bash
 java Main "Mensagem a ser criptografada" 1009
 ```
-5. Obtenha o resultado.
+6. Obtenha o resultado.
 ```txt
 Mensagem a ser criptografada
 |
