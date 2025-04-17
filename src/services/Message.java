@@ -41,7 +41,13 @@ public class Message {
 
         for (char c : characters.toCharArray()) {
             var codigo = Integer.toString(iCode);
-            codigo = (codigo.length() > 1) ? codigo : "0" + codigo;
+
+            if (codigo.length() < 2) {
+                codigo = "00" + codigo;
+            } else if (codigo.length() < 3) {
+                codigo = "0" + codigo;
+            }
+
             charactersNumbers.put(Character.toString(c), codigo);
             iCode++;
         }
@@ -50,12 +56,19 @@ public class Message {
 
     private void populateNumbersCharacters() {
 
-        String characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ,.;:!?- 1234567890áéíóúãẽĩõũâêîôûçÇÁÉÍÓÚÃẼĨÕŨ(){}[]+=-_/<>''\"\\";
+        String characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ,.;:!?- 1234567890áéíóúãẽĩõũâêîôûçÇÁÉÍÓÚÃẼĨÕŨ(){}[]+=_/<>''\"\\";
         int iCode = 0;
 
         for (char c : characters.toCharArray()) {
+
             var codigo = Integer.toString(iCode);
-            codigo = (codigo.length() > 1) ? codigo : "0" + codigo;
+
+            if (codigo.length() < 2) {
+                codigo = "00" + codigo;
+            } else if (codigo.length() < 3) {
+                codigo = "0" + codigo;
+            }
+
             numbersCharacters.put(codigo, Character.toString(c));
             iCode++;
         }
@@ -77,7 +90,7 @@ public class Message {
 
             var digit = Character.toString(c);
 
-            if ((iFormatEncMessage != 0) && (iFormatEncMessage % 2 == 0)) {
+            if ((iFormatEncMessage != 0) && (iFormatEncMessage % 3 == 0)) {
                 formatEncMessage += "-" + digit;
             } else {
                 formatEncMessage += digit;

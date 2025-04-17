@@ -83,7 +83,13 @@ public class Receiver {
 
             int pezao = ((cezao.multiply(b.pow(p - 1 - privk))).mod(BigInteger.valueOf(p))).intValue();
 
-            String fPezao = (Integer.toString(pezao).length() > 1) ? Integer.toString(pezao) : "0" + Integer.toString(pezao);
+            String fPezao = Integer.toString(pezao);
+
+            if (fPezao.length() < 2) {
+                fPezao = "00" + fPezao;
+            } else if (fPezao.length() < 3) {
+                fPezao = "0" + fPezao;
+            }
 
             decMensagem += fPezao;
 
